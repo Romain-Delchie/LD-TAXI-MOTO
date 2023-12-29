@@ -1,3 +1,40 @@
 #services {
     height: 100vh;
+    background: url("/paris.jpeg") no-repeat center center/cover;
+}
+
+
+.services-container {
+    background: rgba(0, 0, 0, 0.80);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    color: #a39073;
+    padding: 0 20px;
+    padding-top: 150px;
+    height: 100%;
+}
+
+.services-image {
+    width: 200px;
+}
+
+.services-section {
+    background-color: #130C00D4;
+    border-radius: 7px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: calc((100vh - 150px) / 3.5);
+    width: 50%;
+}
+
+.services-section p {
+    width: 60%;
+    text-align: justify;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
