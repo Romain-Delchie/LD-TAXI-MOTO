@@ -1,35 +1,101 @@
 .rectangle {
-    border-radius: 7px;
-    position: absolute;
-    overflow: hidden;
-    opacity: 0;
-    animation: arrive 0.5s forwards ease-in-out;
-    width: 280px;
-    height: 200px;
+  border-radius: 7px;
+  position: absolute;
+  overflow: hidden;
+  opacity: 0;
+  animation: arrive 0.5s forwards ease-in-out;
+  width: 280px;
+  height: 200px;
+  box-shadow: 8px 8px 16px #120f0f, -8px -8px 16px #261f1f;
 }
 
 .rectangle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .rectangle-left {
-    top: 170px;
-    left: 30px;
+  top: 50px;
+  left: 30px;
 }
 
 .rectangle-bottom {
-    bottom: 20px;
-    left: 30px;
+  bottom: 50px;
+  left: 30px;
 }
 
 .rectangle-right {
-    right: 30px;
-    bottom: 20px;
+  right: 30px;
+  bottom: 50px;
 }
 
 .rectangle-top {
+  right: 30px;
+  top: 50px;
+}
+
+@media screen and (max-width: 1700px) {
+  .rectangle-left {
+    top: 220px;
+    left: 30px;
+  }
+
+  .rectangle-bottom {
+    bottom: 50px;
+    left: 30px;
+  }
+
+  .rectangle-right {
     right: 30px;
-    top: 170px;
+    bottom: 50px;
+  }
+
+  .rectangle-top {
+    right: 30px;
+    top: 220px;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .hero-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .rectangle {
+    position: static;
+    width: 200px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .rectangle-right {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  .rectangle-right {
+    display: inline;
+  }
+}
+@media screen and (max-width: 500px) {
+  .rectangle {
+    width: 150px;
+    height: 100px;
+  }
+  .rectangle-right {
+    display: inline;
+  }
+}
+@media screen and (max-width: 340px) {
+  .rectangle {
+    width: 120px;
+    height: 80px;
+  }
+  .rectangle-right {
+    display: inline;
+  }
 }
