@@ -77,7 +77,7 @@ nav {
   --gold-12: #e8e2d9;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1132px) {
   .isActive {
     background-color: transparent;
   }

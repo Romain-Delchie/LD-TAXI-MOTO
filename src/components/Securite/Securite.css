@@ -1,3 +1,14 @@
 #securite {
-    height: 100vh;
+  height: 100vh;
+  background: url("/casquebg.jpg") no-repeat center/cover fixed;
+}
+
+.securite-container {
+  padding-top: 150px;
+  background: rgba(0, 0, 0, 0.8);
+  height: 100vh;
+}
+
+.securite-title {
+  color: #a39073;
 }

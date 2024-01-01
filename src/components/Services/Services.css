@@ -1,7 +1,7 @@
 #services {
   height: 100vh;
   overflow: hidden;
-  background: url("/paris.jpeg") no-repeat center center/cover;
+  background: url("/paris.jpeg") no-repeat center center/cover fixed;
 }
 
 .services-container {
