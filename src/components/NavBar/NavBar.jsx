@@ -4,10 +4,14 @@ import "./NavBar.css";
 
 export default function NavBar() {
   const [activeLink, setActiveLink] = useState("main");
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const handleSetActive = (to) => {
     setActiveLink(to);
   };
-  console.log();
+
+  function closeBurger() {
+    setIsBurgerOpen(false);
+  }
 
   return (
     <nav>
@@ -24,70 +28,109 @@ export default function NavBar() {
         <p>Tel: +33(6) 29 98 09 81</p>
       </a>
 
-      <div className="menu-container">
-        <Link
-          onClick={() => handleSetActive("main")}
-          className={`logo-link ${activeLink === "main" ? "isActive" : ""}`}
-          to="main"
-          active={activeLink === "main"}
-          onSetActive={() => handleSetActive("main")}
-          spy={true}
-          smooth={true}
-          duration={1000}
-        >
-          Accueil
-        </Link>
-        <Link
-          onClick={() => handleSetActive("services")}
-          className={`logo-link ${activeLink === "services" ? "isActive" : ""}`}
-          to="services"
-          active={activeLink === "services"}
-          onSetActive={() => handleSetActive("services")}
-          spy={true}
-          smooth={true}
-          duration={1000}
-        >
-          Nos services
-        </Link>
-        <Link
-          onClick={() => handleSetActive("securite")}
-          className={`logo-link ${activeLink === "securite" ? "isActive" : ""}`}
-          to="securite"
-          active={activeLink === "securite"}
-          onSetActive={() => handleSetActive("securite")}
-          spy={true}
-          smooth={true}
-          duration={1000}
-        >
-          Sécutité et équipements
-        </Link>
-        <Link
-          onClick={() => handleSetActive("tarifs")}
-          className={`logo-link ${activeLink === "tarifs" ? "isActive" : ""}`}
-          to="tarifs"
-          active={activeLink === "tarifs"}
-          spy={true}
-          onSetActive={() => handleSetActive("tarifs")}
-          smooth={true}
-          duration={1000}
-        >
-          Tarifs
-        </Link>
-        <Link
-          onClick={() => handleSetActive("reservation")}
-          className={`logo-link ${
-            activeLink === "reservation" ? "isActive" : ""
-          }`}
-          to="reservation"
-          active={activeLink === "reservation"}
-          spy={true}
-          smooth={true}
-          onSetActive={() => handleSetActive("reservation")}
-          duration={1000}
-        >
-          Réservation
-        </Link>
-      </div>
+      <ul
+        className={`navbar-links ${
+          isBurgerOpen ? "show-navbar" : "hide-navbar"
+        }`}
+      >
+        <li className="navbar-item slideInDown1">
+          <Link
+            onClick={() => {
+              handleSetActive("main");
+              closeBurger();
+            }}
+            className={`logo-link ${activeLink === "main" ? "isActive" : ""}`}
+            to="main"
+            active={activeLink === "main"}
+            onSetActive={() => handleSetActive("main")}
+            spy={true}
+            smooth={true}
+            duration={1000}
+          >
+            Accueil
+          </Link>
+        </li>
+        <li className="navbar-item slideInDown2">
+          <Link
+            onClick={() => {
+              handleSetActive("services");
+              closeBurger();
+            }}
+            className={`logo-link ${
+              activeLink === "services" ? "isActive" : ""
+            }`}
+            to="services"
+            active={activeLink === "services"}
+            onSetActive={() => handleSetActive("services")}
+            spy={true}
+            smooth={true}
+            duration={1000}
+          >
+            Nos services
+          </Link>
+        </li>
+        <li className="navbar-item slideInDown3">
+          <Link
+            onClick={() => {
+              handleSetActive("securite");
+              closeBurger();
+            }}
+            className={`logo-link ${
+              activeLink === "securite" ? "isActive" : ""
+            }`}
+            to="securite"
+            active={activeLink === "securite"}
+            onSetActive={() => handleSetActive("securite")}
+            spy={true}
+            smooth={true}
+            duration={1000}
+          >
+            Sécutité et <span>équipements</span>
+          </Link>
+        </li>
+        <li className="navbar-item slideInDown4">
+          <Link
+            onClick={() => {
+              handleSetActive("tarifs");
+              closeBurger();
+            }}
+            className={`logo-link ${activeLink === "tarifs" ? "isActive" : ""}`}
+            to="tarifs"
+            active={activeLink === "tarifs"}
+            spy={true}
+            onSetActive={() => handleSetActive("tarifs")}
+            smooth={true}
+            duration={1000}
+          >
+            Tarifs
+          </Link>
+        </li>
+        <li className="navbar-item slideInDown5">
+          <Link
+            onClick={() => {
+              handleSetActive("reservation");
+              closeBurger();
+            }}
+            className={`logo-link ${
+              activeLink === "reservation" ? "isActive" : ""
+            }`}
+            to="reservation"
+            active={activeLink === "reservation"}
+            spy={true}
+            smooth={true}
+            onSetActive={() => handleSetActive("reservation")}
+            duration={1000}
+          >
+            Réservation
+          </Link>
+        </li>
+      </ul>
+      <button
+        onClick={() => setIsBurgerOpen(!isBurgerOpen)}
+        className="navbar-burger"
+      >
+        <span className="burger-line"></span>
+      </button>
     </nav>
   );
 }

@@ -8,13 +8,19 @@ export default function Services() {
     target: servicesRef,
     offset: ["start center", "end start"],
   });
-
-  const x = useTransform(scrollYProgress, [0, 0.5, 1], ["0%", "75%", "150%"]);
+  console.log(window.innerWidth);
+  const x = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    window.innerWidth <= 1200 ? ["-100%", "50%", "100%"] : ["0%", "75%", "150%"]
+  );
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 0]);
   const xInverse = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["100%", "25%", "-50%"]
+    window.innerWidth <= 1200
+      ? ["100%", "-50%", "-100%"]
+      : ["100%", "25%", "-50%"]
   );
 
   return (
@@ -30,8 +36,8 @@ export default function Services() {
             LD Taxi Moto est à votre disposition 24h/24, 7j/7, assurant une
             ponctualité rigoureuse. Nous vous garantissons efficacité, gain de
             temps, sécurité, flexibilité, hygiène, confort et ponctualité lors
-            de vos déplacements. Ces aspects sont devenus essentiels dans notre
-            magnifique capitale constamment saturée par le trafic.
+            de vos déplacements. <span>Ces aspects sont devenus essentiels dans notre
+            magnifique capitale constamment saturée par le trafic.</span>
           </p>
           <img
             className="services-image"
