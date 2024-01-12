@@ -2,8 +2,60 @@
   height: 100vh;
   background: url("/gare.jpeg") no-repeat center/cover fixed;
 }
+
 .reservation-container {
   height: 100vh;
   padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: rgba(0, 0, 0, 0.8);
+}
+
+.reservation-container h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.reservation-form {
+  margin-top: 30px;
+  background-color: #978365d2;
+  border-radius: 7px;
+  padding: 20px;
+  color: #e8e2d9;
+  display: flex;
+  width: 70%;
+  max-width: 800px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.reservation-form>* {
+  width: 300px !important;
+}
+
+.adresse::placeholder {
+  color: #e8e2d9;
+
+}
+
+.adresse {
+  color: #e8e2d9;
+}
+
+.MuiOutlinedInput-in {
+  color: #e8e2d9;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: #e8e2d9;
+}
+
+.reservation-contact {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

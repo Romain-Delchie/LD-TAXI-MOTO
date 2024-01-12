@@ -16,23 +16,23 @@
 }
 
 .rectangle-left {
-  top: 50px;
+  top: -50px;
   left: 30px;
 }
 
 .rectangle-bottom {
-  bottom: 50px;
+  bottom: -50px;
   left: 30px;
 }
 
 .rectangle-right {
   right: 30px;
-  bottom: 50px;
+  bottom: -50px;
 }
 
 .rectangle-top {
   right: 30px;
-  top: 50px;
+  top: -50px;
 }
 
 @media screen and (max-width: 1700px) {
@@ -64,6 +64,7 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .rectangle {
     position: static;
     width: 200px;
@@ -76,25 +77,30 @@
     display: none;
   }
 }
+
 @media screen and (max-width: 650px) {
   .rectangle-right {
     display: inline;
   }
 }
+
 @media screen and (max-width: 500px) {
   .rectangle {
     width: 150px;
     height: 100px;
   }
+
   .rectangle-right {
     display: inline;
   }
 }
+
 @media screen and (max-width: 340px) {
   .rectangle {
     width: 120px;
     height: 80px;
   }
+
   .rectangle-right {
     display: inline;
   }
