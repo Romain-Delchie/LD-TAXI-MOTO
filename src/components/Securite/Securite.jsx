@@ -38,7 +38,7 @@ export default function Securite() {
             <li>Tablier intégré à la moto qui couvrira vos jambes.</li>
             <li>Gilet airbag spécialisé pour la moto.</li>
           </ul>
-          <Swiper
+          {/* <Swiper
             effect={"cube"}
             grabCursor={true}
             cubeEffect={{
@@ -56,7 +56,7 @@ export default function Securite() {
             className="mySwiper"
           >
             {slides}
-          </Swiper>
+          </Swiper> */}
         </div>
         <h2 className="securite-title">
           Entretien Rigoureux pour une Sécurité Optimale

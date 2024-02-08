@@ -31,8 +31,23 @@
   width: 70%;
   max-width: 800px;
   flex-wrap: wrap;
+  gap: 10px;
   align-items: center;
   justify-content: center;
+}
+
+.address-section {
+  & ul {
+    position: absolute;
+    background-color: #978365;
+    z-index: 55;
+    overflow: scroll;
+    & li {
+      list-style: none;
+      border: 1px solid #e8e2d9;
+      padding: 10px;
+    }
+  }
 }
 
 .reservation-form > * {
@@ -45,6 +60,7 @@
 
 .adresse {
   color: #e8e2d9;
+  width: 100%;
 }
 
 .MuiOutlinedInput-in {
@@ -70,6 +86,9 @@
   .reservation-container h2 {
     font-size: 2rem;
     margin: 30px;
+  }
+  .reservation-form > * {
+    width: 98% !important;
   }
 }
 
