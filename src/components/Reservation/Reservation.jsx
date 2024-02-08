@@ -36,12 +36,13 @@ export default function Reservation() {
       setSuggestions(features);
     };
 
-    if (formDatas.depart.length > 4 || formDatas.destination.length > 4) {
-      if (focusedField === "depart") {
-        fetchData(formDatas.depart, setDepartSuggestions);
-      } else if (focusedField === "destination") {
-        fetchData(formDatas.destination, setDestSuggestions);
-      }
+    if (focusedField === "depart" && formDatas.depart.length > 4) {
+      fetchData(formDatas.depart, setDepartSuggestions);
+    } else if (
+      focusedField === "destination" &&
+      formDatas.destination.length > 4
+    ) {
+      fetchData(formDatas.destination, setDestSuggestions);
     }
   }, [formDatas.depart, formDatas.destination, focusedField]);
 
