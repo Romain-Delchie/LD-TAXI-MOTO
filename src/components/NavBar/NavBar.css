@@ -1,7 +1,7 @@
 nav {
   position: fixed;
   overflow: hidden;
-  z-index: 1;
+  z-index: 1000;
   top: 0;
   width: 100%;
   max-width: 2400px;
@@ -37,10 +37,11 @@ nav {
   align-items: center;
   padding: 10px;
   border-radius: 7px;
+  color: #a39073;
 }
 
 .isActive {
-  color: #a39073;
+  color: #e8e2d9;
   background-color: #2222229d;
 }
 

@@ -16,11 +16,11 @@ export default function Tarifs() {
           <tbody>
             <tr>
               <td>Paris - Paris</td>
-              <td>55€</td>
+              <td>50€</td>
             </tr>
             <tr>
               <td>Paris - Orly</td>
-              <td>70€</td>
+              <td>80€</td>
             </tr>
             <tr>
               <td>Paris - CDG</td>
@@ -35,7 +35,7 @@ export default function Tarifs() {
               <td>90€</td>
             </tr>
             <tr>
-              <td>Paris - La Défense</td>
+              <td>Paris - Petite couronne</td>
               <td>65€</td>
             </tr>
             <tr>

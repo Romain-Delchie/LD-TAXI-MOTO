@@ -1,10 +1,10 @@
 #reservation {
-  height: 100vh;
+  min-height: 100vh;
   background: url("/gare.jpeg") no-repeat center/cover fixed;
 }
 
 .reservation-container {
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 150px;
   display: flex;
   flex-direction: column;
@@ -21,7 +21,6 @@
   text-align: center;
 }
 
-
 .reservation-form {
   margin-top: 30px;
   background-color: #978365d2;
@@ -36,13 +35,12 @@
   justify-content: center;
 }
 
-.reservation-form>* {
+.reservation-form > * {
   width: 300px !important;
 }
 
 .adresse::placeholder {
   color: #e8e2d9;
-
 }
 
 .adresse {
@@ -55,6 +53,10 @@
 
 .MuiOutlinedInput-notchedOutline {
   border-color: #e8e2d9;
+}
+
+.css-hcp6ee-MuiFormLabel-root-MuiInputLabel-root {
+  z-index: 0 !important;
 }
 
 .reservation-contact {
