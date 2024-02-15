@@ -24,8 +24,8 @@ export default function NavBar() {
       >
         <img src="/logo5.png" alt=" logo de LD taxi moto" />
       </Link>
-      <a className="navbar-tel" href={`tel:+33629980981`}>
-        <p>Tel: +33(6) 29 98 09 81</p>
+      <a className="navbar-tel" href={`tel:+33670513649`}>
+        <p>Tel: +33(6) 70 51 36 49</p>
       </a>
 
       <ul

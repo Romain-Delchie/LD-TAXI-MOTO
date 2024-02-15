@@ -11,6 +11,8 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { frFR } from "@mui/x-date-pickers";
 import "dayjs/locale/fr";
+import dayjs from "dayjs";
+import emailjs from "emailjs-com";
 
 export default function Reservation() {
   const [departSuggestions, setDepartSuggestions] = useState([]);
@@ -25,6 +27,7 @@ export default function Reservation() {
     portable: "",
     email: "",
   });
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const fetchData = async (query, setSuggestions) => {
@@ -49,11 +52,11 @@ export default function Reservation() {
   const handleChangeInput = (e) => {
     const { id, value } = e.target;
     setFormDatas({ ...formDatas, [id]: value });
+    setMessage("");
   };
 
   const handleSelectAddress = (key, address) => {
     setFormDatas({ ...formDatas, [key]: address });
-    console.log({ key: address });
   };
 
   const handleFocus = (field) => {
@@ -64,6 +67,71 @@ export default function Reservation() {
     setTimeout(() => {
       setFocusedField(null);
     }, 100);
+  };
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    const requiredFields = [
+      "depart",
+      "destination",
+      "date",
+      "heure",
+      "portable",
+      "email",
+    ];
+    const emptyFields = requiredFields.filter((field) => !formDatas[field]);
+
+    if (emptyFields.length > 0) {
+      setMessage(
+        `Veuillez remplir les champs suivants : ${emptyFields.join(", ")}.`
+      );
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\d{10}$/;
+
+    if (formDatas.email && !emailRegex.test(formDatas.email)) {
+      setMessage("Veuillez entrer une adresse e-mail valide.");
+
+      return;
+    }
+
+    if (formDatas.portable && !phoneRegex.test(formDatas.portable)) {
+      setMessage(
+        "Veuillez entrer un numéro de téléphone valide (10 chiffres)."
+      );
+      return;
+    }
+
+    const templateParams = {
+      depart: formDatas.depart,
+      destination: formDatas.destination,
+      date: formDatas.date,
+      heure: formDatas.heure,
+      infos: formDatas.infos,
+      portable: formDatas.portable,
+      email: formDatas.email,
+    };
+
+    emailjs
+      .send(
+        import.meta.env.REACT_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.REACT_APP_EMAILJS_USER_ID
+      )
+      .then((response) => {
+        console.log("Email sent successfully:", response);
+        alert(
+          "Votre réservation a bien été prise en compte!, Nous vous recontacterons dans les plus brefs délais."
+        );
+      })
+      .catch((error) => {
+        alert(
+          "Une erreur est survenue, veuillez nous contacter au 06 70 51 36 49"
+        );
+      });
   };
 
   const theme = createTheme({
@@ -82,6 +150,7 @@ export default function Reservation() {
           <Box
             className="reservation-form"
             component="form"
+            onSubmit={handleSubmitForm}
             sx={{
               "& > :not(style)": { m: 1, width: "25ch" },
             }}
@@ -120,6 +189,7 @@ export default function Reservation() {
                 <ul>
                   {departSuggestions.map((address, index) => (
                     <li
+                      className="address-suggestion"
                       key={index}
                       onClick={() => handleSelectAddress("depart", address)}
                     >
@@ -165,6 +235,7 @@ export default function Reservation() {
                 <ul>
                   {destSuggestions.map((address, index) => (
                     <li
+                      className="address-suggestion"
                       key={index}
                       onClick={() =>
                         handleSelectAddress("destination", address)
@@ -184,9 +255,14 @@ export default function Reservation() {
               dateAdapter={AdapterDayjs}
             >
               <DatePicker
-                onChange={handleChangeInput}
                 id="date"
                 label="Date"
+                value={formDatas.date}
+                onChange={(newValue) => {
+                  setMessage("");
+                  const formattedDate = dayjs(newValue).format("DD/MM/YYYY");
+                  setFormDatas({ ...formDatas, date: formattedDate });
+                }}
                 sx={{
                   "& .MuiSvgIcon-root": {
                     color: "#e8e2d9 !important",
@@ -196,7 +272,7 @@ export default function Reservation() {
                   },
                   "& .MuiOutlinedInput-root": {
                     "& fieldset": {
-                      borderColor: "#e8e2d9",
+                      borderColor: "#e8e2d9 !important",
                     },
                     "&:hover fieldset": {
                       borderColor: "#e8e2d9",
@@ -213,10 +289,15 @@ export default function Reservation() {
                 }}
               />
               <TimePicker
-                onChange={handleChangeInput}
                 id="heure"
                 clearable
                 ampm={false}
+                value={formDatas.heure}
+                onChange={(newValue) => {
+                  setMessage("");
+                  const formattedHour = dayjs(newValue).format("HH:mm");
+                  setFormDatas({ ...formDatas, heure: formattedHour });
+                }}
                 sx={{
                   "& .MuiSvgIcon-root": {
                     color: "#e8e2d9 !important",
@@ -226,7 +307,7 @@ export default function Reservation() {
                   },
                   "& .MuiOutlinedInput-root": {
                     "& fieldset": {
-                      borderColor: "#e8e2d9",
+                      borderColor: "#e8e2d9 !important",
                     },
                     "&:hover fieldset": {
                       borderColor: "#e8e2d9",
@@ -324,6 +405,7 @@ export default function Reservation() {
               />
             </div>
             <Button
+              type="submit"
               variant="contained"
               endIcon={<SendIcon />}
               sx={{
@@ -337,6 +419,7 @@ export default function Reservation() {
             >
               Envoyer
             </Button>
+            {message && <p className="form-message">{message}</p>}
           </Box>
         </section>
       </div>
