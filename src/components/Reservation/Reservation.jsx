@@ -31,6 +31,7 @@ export default function Reservation() {
   const service_id = process.env.EMAILJS_SERVICE_ID;
   const template_id = process.env.EMAILJS_TEMPLATE_ID;
   const user_id = process.env.EMAILJS_USER_ID;
+  console.log(process.env);
 
   useEffect(() => {
     const fetchData = async (query, setSuggestions) => {
