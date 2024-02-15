@@ -28,10 +28,9 @@ export default function Reservation() {
     email: "",
   });
   const [message, setMessage] = useState("");
-  const service_id = import.meta.env.EMAILJS_SERVICE_ID;
-  const template_id = import.meta.env.EMAILJS_TEMPLATE_ID;
-  const user_id = import.meta.env.EMAILJS_USER_ID;
-  console.log(import.meta.env);
+  const service_id = process.env.EMAILJS_SERVICE_ID;
+  const template_id = process.env.EMAILJS_TEMPLATE_ID;
+  const user_id = process.env.EMAILJS_USER_ID;
 
   useEffect(() => {
     const fetchData = async (query, setSuggestions) => {
