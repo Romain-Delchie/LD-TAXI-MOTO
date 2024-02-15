@@ -28,6 +28,9 @@ export default function Reservation() {
     email: "",
   });
   const [message, setMessage] = useState("");
+  const service_id = import.meta.env.EMAILJS_SERVICE_ID;
+  const template_id = import.meta.env.EMAILJS_TEMPLATE_ID;
+  const user_id = import.meta.env.EMAILJS_USER_ID;
 
   useEffect(() => {
     const fetchData = async (query, setSuggestions) => {
@@ -115,12 +118,7 @@ export default function Reservation() {
     };
 
     emailjs
-      .send(
-        import.meta.env.EMAILJS_SERVICE_ID,
-        import.meta.env.EMAILJS_TEMPLATE_ID,
-        templateParams,
-        import.meta.env.EMAILJS_USER_ID
-      )
+      .send(service_id, template_id, templateParams, user_id)
       .then((response) => {
         alert(
           "Votre réservation a bien été prise en compte!, Nous vous recontacterons dans les plus brefs délais."
