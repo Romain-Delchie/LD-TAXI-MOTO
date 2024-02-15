@@ -116,10 +116,10 @@ export default function Reservation() {
 
     emailjs
       .send(
-        import.meta.env.REACT_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        import.meta.env.EMAILJS_SERVICE_ID,
+        import.meta.env.EMAILJS_TEMPLATE_ID,
         templateParams,
-        import.meta.env.REACT_APP_EMAILJS_USER_ID
+        import.meta.env.EMAILJS_USER_ID
       )
       .then((response) => {
         console.log("Email sent successfully:", response);
