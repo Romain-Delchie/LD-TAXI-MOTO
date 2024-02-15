@@ -122,7 +122,6 @@ export default function Reservation() {
         import.meta.env.EMAILJS_USER_ID
       )
       .then((response) => {
-        console.log("Email sent successfully:", response);
         alert(
           "Votre réservation a bien été prise en compte!, Nous vous recontacterons dans les plus brefs délais."
         );
@@ -141,7 +140,7 @@ export default function Reservation() {
       },
     },
   });
-  console.log(formDatas);
+
   return (
     <ThemeProvider theme={theme}>
       <div id="reservation">
