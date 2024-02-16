@@ -1,10 +1,10 @@
 #reservation {
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
   background: url("/gare.jpeg") no-repeat center/cover fixed;
 }
 
 .reservation-container {
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
   padding-top: 150px;
   display: flex;
   flex-direction: column;
@@ -14,15 +14,14 @@
 }
 
 .reservation-container h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
   color: #a39073;
   text-transform: uppercase;
   text-align: center;
 }
 
 .reservation-form {
-  margin-top: 30px;
+  margin-top: 20px;
   background-color: #978365d2;
   border-radius: 7px;
   padding: 20px;

@@ -85,7 +85,7 @@ export default function NavBar() {
             smooth={true}
             duration={1000}
           >
-            Sécutité et équipements
+            Sécurité et équipements
           </Link>
         </li>
         <li className="navbar-item slideInDown4">

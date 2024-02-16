@@ -13,6 +13,7 @@ import { frFR } from "@mui/x-date-pickers";
 import "dayjs/locale/fr";
 import dayjs from "dayjs";
 import emailjs from "emailjs-com";
+import Footer from "../Footer/Footer";
 
 export default function Reservation() {
   const [departSuggestions, setDepartSuggestions] = useState([]);
@@ -123,6 +124,7 @@ export default function Reservation() {
         alert(
           "Votre réservation a bien été prise en compte!, Nous vous recontacterons dans les plus brefs délais."
         );
+        window.location.reload();
       })
       .catch((error) => {
         alert(
@@ -419,6 +421,7 @@ export default function Reservation() {
             {message && <p className="form-message">{message}</p>}
           </Box>
         </section>
+        <Footer />
       </div>
     </ThemeProvider>
   );
